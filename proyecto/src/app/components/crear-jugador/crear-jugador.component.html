@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="titulo-con-imagen">
+                        <img src="assets/images/nba-logo-transparent.png" alt="NBA" style="width: 24px; height: 53.32px;">
+                        <span class="titulo"> {{ titulo | uppercase }}</span>
+                    </div>
+
+                    <form class="mt-3 table table-dark table-striped-columns" [formGroup]="jugadorForm" (ngSubmit)="agregarJugador()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="jugador" class="form-control form-control-lg" placeholder="Jugador">
+                            <div class="text-danger" *ngIf="jugadorForm.get('jugador')?.hasError('required') && jugadorForm.get('jugador')?.touched">
+                                <span>El nombre del jugador <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="posicion" class="form-control form-control-lg" placeholder="Posicion">
+                            <div class="text-danger" *ngIf="jugadorForm.get('posicion')?.hasError('required') && jugadorForm.get('posicion')?.touched">
+                                <span>La posición <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="equipo" class="form-control form-control-lg" placeholder="Equipo">
+                            <div class="text-danger" *ngIf="jugadorForm.get('equipo')?.hasError('required') && jugadorForm.get('equipo')?.touched">
+                                <span>El equipo <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="anotaciones" class="form-control form-control-lg" placeholder="Anotaciones">
+                            <div class="text-danger" *ngIf="jugadorForm.get('anotaciones')?.hasError('required') && jugadorForm.get('anotaciones')?.touched">
+                                <span>Los anotaciones <strong>son obligatorios</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                            <button type="submit" [disabled]="jugadorForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

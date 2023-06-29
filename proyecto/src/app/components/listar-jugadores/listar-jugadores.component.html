@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card formulario-estilo">
+                <div class="card-body text-center">
+                    <div class="titulo-con-imagen">
+                        <img src="assets/images/nba-logo-transparent.png" alt="NBA" style="width: 24px; height: 53.32px;">
+                        <span class="titulo">JUGADORES DE LA NBA</span>
+                        <button class="btn btn-success float-end" routerLink="/crear-jugador">AGREGAR UN JUGADOR</button>
+                    </div>
+
+                    <table *ngIf="listJugadores.length > 0" class="table table-dark mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">Jugador</th>
+                                <th scope="col">Posición</th>
+                                <th scope="col">Equipo</th>
+                                <th scope="col">Anotaciones</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let jugador of listJugadores">
+                                <td>{{ jugador.jugador }}</td>
+                                <td>{{ jugador.posicion }}</td>
+                                <td>{{ jugador.equipo }}</td>
+                                <td>{{ jugador.anotaciones }}</td>
+                                <td>
+                                    <i [routerLink]="['/editar-jugador', jugador._id]" class="fas fa-edit"></i>
+                                    <i (click)="eliminarJugador(jugador._id)" class="fas fa-trash-alt"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listJugadores.length == 0">SIN JUGADORES</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

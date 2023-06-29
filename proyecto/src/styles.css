@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-image: url('assets/images/depositphotos_15126123-stock-photo-basketball-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.card formulario-estilo {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+@keyframes animat {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fanimado {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.titulo {
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+}
